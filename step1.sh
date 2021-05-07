@@ -12,7 +12,7 @@ wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5c
 wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step2.sh && chmod 777 step2.sh
 sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
-chmod u+rw $cntFile
+chmod +rw $cntFile
 sed -i 's/10000000000000000/100/g' cashout.sh
 
 fi
