@@ -11,6 +11,7 @@ wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5c
 wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step2.sh && chmod 777 step2.sh
 sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
+sed -i 's/10000000000000000/100/g' cashout.sh
 #chmod +rw $cntFilefi
 fi
 if [ $# == 1 ]; then
@@ -35,6 +36,8 @@ password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
+cp cashout.sh cashout${tCnt}.sh
+sed -i 's/1635/$((1734+${tCnt}))/g' cashout${tCnt}.sh
 echo "//====第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
 echo "//====接水完毕后按Ctrl+C，之后再次运行此脚本部署更多节点===//"
 echo "//====部署完所有节点后运行step2.sh开始正式挖矿======================//"
