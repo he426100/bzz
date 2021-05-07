@@ -21,7 +21,7 @@ fi
 tCnt=`cat $cntFile`
 let tCnt++
 echo $($tCnt) > $cntFile
-echo "//==== 这是第 $tCnt 次创建节点======================//"
+echo "//====这是第 $tCnt 次创建节点"
 
 cat>node${tCnt}.yaml<<EOF
 api-addr: $((1634+${tCnt}))
@@ -35,8 +35,7 @@ password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
-echo "//====node${tCnt}.yaml文件已生成至当前目录=========//"
-echo "//====第${tCnt}个节点的接水地址如下======================//"
+echo "//====第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
 echo "//====接水完毕后按Ctrl+C，之后再次运行此脚本部署更多节点===//"
 echo "//====部署完所有节点后运行step2.sh开始正式挖矿======================//"
 bee start --config node${tCnt}.yaml
