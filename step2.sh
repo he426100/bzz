@@ -12,9 +12,9 @@ tCnt=`cat $cntFile`
 for ((i=1; i<=tCnt; i ++))
 do
 cp /var/lib/node${tCnt}/keys/swarm.key node${tCnt} /keys/${ip}-${tCnt}.key
-screen -dmS $i
+screen -dmS bee$i
 cmd=$"bee start  --config node${i}.yaml";
-screen -x -S ${i} -p 0 -X stuff "$cmd"
-screen -x -S ${i} -p 0 -X stuff $'\n'
+screen -x -S bee$i -p 0 -X stuff "$cmd"
+screen -x -S bee$i -p 0 -X stuff $'\n'
 done
 sz /keys/*
