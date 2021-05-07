@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ip=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
-mkdir keys
+mkdir -p keys
 cntFile=".showcnt.txt"
 if [ ! -f $cntFile ]; then
 echo "未运行step1！"
