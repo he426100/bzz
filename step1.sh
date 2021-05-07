@@ -24,12 +24,12 @@ fi
 fi
 tCnt=`cat $cntFile`
 echo $(($tCnt+1)) > $cntFile
-tCnt=tCnt+1
+tCnt++
 echo "//====================================="
 echo "//== 这是第 $tCnt 次创建节点" echo "//====================================="
 
 cat>bee${tCnt}.yaml<<EOF
-api-addr: :$((1635+${tCnt}))
+api-addr:$((1635+${tCnt}))
 clef-signer-enable: false
 config: /etc/bee/bee${tCnt}.yaml
 data-dir: /var/lib/bee${tCnt}
