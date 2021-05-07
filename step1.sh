@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step2.sh && chmod 777
 #sudo dpkg -i bee-clef_0.4.9_amd64.deb
 sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
-chmod +rw $cntFilefi
+#chmod +rw $cntFilefi
 fi
 if [ $# == 1 ]; then
 if [ $1 == "resetcnt" ]; then
@@ -29,14 +29,14 @@ echo "//====================================="
 echo "//== 这是第 $tCnt 次创建节点" echo "//====================================="
 
 cat>bee${tCnt}.yaml<<EOF
-api-addr: :$((1635+${tCnt})）
+api-addr: :$((1635+${tCnt}))
 clef-signer-enable: false
 config: /etc/bee/bee${tCnt}.yaml
 data-dir: /var/lib/bee${tCnt}
 db-capacity: 15000000
-debug-api-addr: 127.0.0.1:$((1735+${tCnt})）
+debug-api-addr: 127.0.0.1:$((1735+${tCnt}))
 debug-api-enable: true
-p2p-addr: :$((1835+${tCnt})）
+p2p-addr: :$((1835+${tCnt}))
 password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
