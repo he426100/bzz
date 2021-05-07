@@ -6,10 +6,8 @@ apt-get install -y jq
 apt-get install -y lrzsz
 apt-get install -y screen
 wget https://github.com/ethersphere/bee/releases/download/v0.5.3/bee_0.5.3_amd64.deb
-#wget https://github.com/ethersphere/bee-clef/releases/download/v0.4.9/bee-clef_0.4.9_amd64.deb
 wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5cd0500e6428752b37e975/raw/b40510f1172b96c21d6d20558ca1e70d26d625c4/cashout.sh && chmod +x cashout.sh && echo "00 02 * * * /root/cashout.sh cashout-all" >> /etc/crontab
 wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step2.sh && chmod 777 step2.sh
-#sudo dpkg -i bee-clef_0.4.9_amd64.deb
 sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
 #chmod +rw $cntFilefi
@@ -25,8 +23,7 @@ tCnt+=1
 echo "//==== 这是第 $tCnt 次创建节点======================//"
 
 cat>node${tCnt}.yaml<<EOF
-api-addr:$((1635+${tCnt}))
-#clef-signer-enable: false
+api-addr: $((1635+${tCnt}))
 config: /etc/bee/bee${tCnt}.yaml
 data-dir: /var/lib/bee${tCnt}
 db-capacity: 15000000
