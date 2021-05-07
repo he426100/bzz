@@ -32,12 +32,14 @@ data-dir: /var/lib/bee${tCnt}
 db-capacity: 15000000
 debug-api-addr: 127.0.0.1:$((1735+${tCnt}))
 debug-api-enable: true
-p2p-addr: :$((1835+${tCnt}))
+p2p-addr: $((1835+${tCnt}))
 password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
 \cp bee${tCnt}.yaml /etc/bee/bee${tCnt}.yaml
+bee start   \
+--config /etc/bee/${tCnt}.yaml
 echo "//==== bee${tCnt}.yaml文件已生成至/etc/bee=========//"
 echo "//=====================================================//"
 echo "//====第${tCnt}个节点的接水地址如下======================//"
