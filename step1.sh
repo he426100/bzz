@@ -20,18 +20,19 @@ fi
 fi
 tCnt=`cat $cntFile`
 echo $(($tCnt + 1)) > $cntFile
+tCnt=tCnt+1
 echo "//====================================="
 echo "//== 这是第 $tCnt 次创建节点" echo "//====================================="
 
 cat>bee${tCnt}.yaml<<EOF
-api-addr: :${1635+${tCnt}}
+api-addr: :$(1635+${tCnt})
 clef-signer-enable: false
 config: /etc/bee/bee${tCnt}.yaml
 data-dir: /var/lib/bee${tCnt}
 db-capacity: 15000000
-debug-api-addr: 127.0.0.1:${1735+${tCnt}}
+debug-api-addr: 127.0.0.1:$(1735+${tCnt})
 debug-api-enable: true
-p2p-addr: :${1835+${tCnt}}
+p2p-addr: :$(1835+${tCnt})
 password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
@@ -39,7 +40,7 @@ EOF
 \cp bee${tCnt}.yaml /etc/bee/bee${tCnt}.yaml && echo "//== bee${tCnt}.yaml文件已生成至/etc/bee"
 echo "//================================================="
 echo "//====第${tCnt}个节点的接水地址如下======================"
-curl -s localhost:${1635+${tCnt}}/addresses | jq .ethereum
+curl -s localhost:$(1635+${tCnt})/addresses | jq .ethereum
 echo "//====如需开启更多节点请再次运行此脚本============"
 echo "//====注意！在所有节点接水完成后才可运行step2.sh======="
 
