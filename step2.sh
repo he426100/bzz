@@ -11,4 +11,4 @@ do
 bee start   \
 --config /etc/bee/bee${i}.yaml
 done
-sz /var/lib/bee/keys/swarm.key /var/lib/bee/password/*
+sz /var/lib/bee/keys${tCnt}/swarm.key /var/lib/bee/password
