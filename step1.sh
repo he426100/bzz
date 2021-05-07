@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 cntFile=".showcnt.txt"
 if [ ! -f $cntFile ]; then
-echole "首次使用脚本，进行初始化……"
+echo "首次使用脚本，进行初始化……"
 sudo apt-get update
 sudo apt-get install -y jq
 sudo apt-get install -y lrzsz
