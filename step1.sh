@@ -18,8 +18,8 @@ echo "0" > $cntFile
 fi
 fi
 tCnt=`cat $cntFile`
-echo $(($tCnt+1)) > $cntFile
 tCnt+=1
+echo $($tCnt) > $cntFile
 echo "//==== 这是第 $tCnt 次创建节点======================//"
 
 cat>node${tCnt}.yaml<<EOF
