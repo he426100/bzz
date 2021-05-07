@@ -38,7 +38,7 @@ swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
 cp cashout.sh cashout${tCnt}.sh
 sed -i 's/1635/$((1734+${tCnt}))/g' cashout${tCnt}.sh
-echo "//====第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
-echo "//====接水完毕后按Ctrl+C，之后再次运行此脚本部署更多节点===//"
-echo "//====部署完所有节点后运行step2.sh开始正式挖矿======================//"
+echo "    第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
+echo "    接水完毕后按Ctrl+C，之后再次运行此脚本部署更多节点"
+echo "    部署完所有节点后运行step2.sh开始正式挖矿"
 bee start --config node${tCnt}.yaml
