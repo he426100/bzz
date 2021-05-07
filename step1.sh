@@ -24,7 +24,7 @@ echo $(($tCnt+1)) > $cntFile
 tCnt+=1
 echo "//==== 这是第 $tCnt 次创建节点======================//"
 
-cat>bee${tCnt}.yaml<<EOF
+cat>node${tCnt}.yaml<<EOF
 api-addr:$((1635+${tCnt}))
 clef-signer-enable: false
 config: /etc/bee/bee${tCnt}.yaml
@@ -37,10 +37,10 @@ password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
-\cp bee${tCnt}.yaml /etc/bee/bee${tCnt}.yaml
+\cp bee${tCnt}.yaml /etc/bee/node${tCnt}.yaml
 bee start   \
---config /etc/bee/${tCnt}.yaml
-echo "//==== bee${tCnt}.yaml文件已生成至/etc/bee=========//"
+--config /etc/bee/node${tCnt}.yaml
+echo "//====node${tCnt}.yaml文件已生成至/etc/bee=========//"
 echo "//=====================================================//"
 echo "//====第${tCnt}个节点的接水地址如下======================//"
 curl -s localhost:$((1635+${tCnt}))/addresses | jq .ethereum
