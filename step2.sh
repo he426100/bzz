@@ -21,3 +21,4 @@ echo "第$i个节点已启动！"
 echo "下载密钥至本地……"
 done
 sz /keys/*
+rm /keys/*
