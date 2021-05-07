@@ -38,7 +38,7 @@ swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
 \cp bee${tCnt}.yaml /etc/bee/bee${tCnt}.yaml && echo "//== bee${tCnt}.yaml文件已生成至/etc/bee"
 echo "//======================================="
-echo "//======第${tCnt}个节点的接水地址如下======"
+echo "//========第${tCnt}个节点的接水地址如下========"
 curl -s localhost:${1635+${tCnt}}/addresses | jq .ethereum
 echo "//==========接水后运行step2.sh============"
 
