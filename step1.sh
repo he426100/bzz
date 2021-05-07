@@ -26,7 +26,7 @@ echo "//==== 这是第 $tCnt 次创建节点======================//"
 
 cat>node${tCnt}.yaml<<EOF
 api-addr:$((1635+${tCnt}))
-clef-signer-enable: false
+#clef-signer-enable: false
 config: /etc/bee/bee${tCnt}.yaml
 data-dir: /var/lib/bee${tCnt}
 db-capacity: 15000000
