@@ -8,10 +8,11 @@ exit
 fi
 
 tCnt=`cat $cntFile`
-
+$((1734+${i}))
 for ((i=1; i<=tCnt; i ++))
 do
 cp /var/lib/node${tCnt}/keys/swarm.key node${tCnt} /keys/${ip}-${tCnt}.key
+echo "00 02 * * * /root/cashout${i}.sh cashout-all" >> /etc/crontab
 screen -dmS bee$i
 cmd=$"bee start  --config node${i}.yaml";
 screen -x -S bee$i -p 0 -X stuff "$cmd"
