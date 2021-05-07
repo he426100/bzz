@@ -34,11 +34,8 @@ password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
-bee start --config node${tCnt}.yaml
 echo "//====node${tCnt}.yaml文件已生成至当前目录=========//"
-echo "//=====================================================//"
 echo "//====第${tCnt}个节点的接水地址如下======================//"
-curl -s localhost:$((1635+${tCnt}))/addresses | jq .ethereum
-echo "//====如需开启更多节点请在此节点接水完成后再次运行此脚本===========//"
-sz /var/lib/bee/keys${tCnt}/swarm.key /var/lib/bee/password${tCnt}/
-
+echo "//====接水完毕后按Ctrl+C，之后再次运行此脚本部署更多节点===//"
+echo "//====部署完所有节点后运行step2.sh开始正式挖矿======================//"
+bee start --config node${tCnt}.yaml
