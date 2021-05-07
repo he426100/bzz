@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-mkdir BzzNodeTools
-cd BzzNodeTools
-
 cntFile=".showcnt.txt"
 if [ ! -f $cntFile ]; then
 sudo apt-get update
