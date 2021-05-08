@@ -12,7 +12,7 @@ for ((i=1; i<=tCnt; i ++))
 do
 echo "对第$i个节点添加自动提取。"
 cp /var/lib/bee/node${i}/keys/swarm.key ./keys
-mv ./keys/swarm.key ./keys/swarm.key/${ip}-${i}.key
+mv ./keys/swarm.key ./keys/${ip}-${i}.key
 echo "00 02 * * * /root/cashout${i}.sh cashout-all" >> /etc/crontab
 screen -dmS bee$i
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
