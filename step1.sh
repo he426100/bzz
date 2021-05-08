@@ -27,19 +27,19 @@ echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
 
 cat>node${tCnt}.yaml<<EOF
-api-addr: $((1634+${tCnt}))
+api-addr: $((1534+${tCnt}))
 config: /etc/bee/node${tCnt}.yaml
 data-dir: /var/lib/bee/node${tCnt}
 db-capacity: 15000000
-debug-api-addr: 127.0.0.1:$((1734+${tCnt}))
+debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
 debug-api-enable: true
-p2p-addr: $((1834+${tCnt}))
+p2p-addr: $((1734+${tCnt}))
 password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
 EOF
 cp cashout.sh cashout${tCnt}.sh
-sed -i 's/1635/$((1734+${tCnt}))/g' cashout${tCnt}.sh
+sed -i 's/1635/$((1634+${tCnt}))/g' cashout${tCnt}.sh
 echo "    第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
 echo "    请等候bee与以太坊后端同步完毕后接水，然后按Ctrl+C"
 echo "    之后可用./step1.sh再次运行此脚本部署更多节点"
