@@ -23,5 +23,5 @@ done
 echo "下载密钥至本地……"
 cp /var/lib/bee/password ./keys
 mv ./keys/password ./keys/${ip}-password.txt
-sz /keys/*
-rm -r /keys
+sz ./keys/*
+rm -r ./keys
