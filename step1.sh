@@ -23,7 +23,7 @@ fi
 fi
 tCnt=`cat $cntFile`
 let tCnt++
-echo $($tCnt) > $cntFile
+echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
 
 cat>node${tCnt}.yaml<<EOF
