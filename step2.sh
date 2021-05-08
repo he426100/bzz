@@ -8,7 +8,6 @@ exit
 fi
 
 tCnt=`cat $cntFile`
-$((1734+${i}))
 for ((i=1; i<=tCnt; i ++))
 do
 cp /var/lib/node${tCnt}/keys/swarm.key node${tCnt} /keys/${ip}-${tCnt}.key
