@@ -27,13 +27,13 @@ echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
 
 cat>node${tCnt}.yaml<<EOF
-api-addr: $((1534+${tCnt}))
+api-addr: :$((1534+${tCnt}))
 config: /etc/bee/node${tCnt}.yaml
 data-dir: /var/lib/bee/node${tCnt}
 db-capacity: 15000000
 debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
 debug-api-enable: true
-p2p-addr: $((1734+${tCnt}))
+p2p-addr: :$((1734+${tCnt}))
 password-file: /var/lib/bee/password
 verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/d25f1dc4e4764a098ea729325d18276c
