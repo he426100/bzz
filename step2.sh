@@ -16,6 +16,7 @@ screen -dmS bee$i
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
 screen -x -S bee$i -p 0 -X stuff $'\n'
 echo "第$i个节点已启动！"
+screen -ls
 echo "下载密钥至本地……"
 done
 sz /keys/*
