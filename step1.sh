@@ -18,7 +18,7 @@ chmod +rw $cntFile
 sed -i 's/10000000000000000/1/g' cashout.sh
 echo "请输入swap-endpoint链接，如https://goerli.infura.io/v3/12ecf******************:"
 read ep
-echo "${ep} > $epFile"
+echo "${ep}" > $epFile
 fi
 if [ $# == 1 ]; then
 if [ $1 == "resetcnt" ]; then
