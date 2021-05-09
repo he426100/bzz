@@ -30,7 +30,7 @@ tCnt=`cat $cntFile`
 let tCnt++
 echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
-echo "    若需要更改endpoint，请自行修改epFile.txt"
+echo "    若需更改endpoint，请自行修改epFile.txt"
 cat>node${tCnt}.yaml<<EOF
 api-addr: :$((1534+${tCnt}))
 config: /etc/bee/node${tCnt}.yaml
