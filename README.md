@@ -4,7 +4,7 @@
 step1.sh:  
 快速配置多节点  
 step2.sh:  
-使用screen开启节点，写入自动兑付支票，下载钱包文件  
+使用screen开启节点，开启自动兑付，下载钱包文件  
 step3.sh:  
 修复旧版本step2.sh的自动兑付的端口错误，下载钱包地址和合约地址  
 
@@ -14,8 +14,21 @@ Ubuntu20.04
 未安装Bee或已将其彻底删除，/var、/etc目录下无残留
 
 
-用法
+节点配置  
 
 wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step1.sh && chmod 777 step1.sh && ./step1.sh
-之后每想添加一个节点就运行一次./step1.sh，直至满意数量。
-运行./step2.sh
+之后每想添加一个节点就运行一次./step1.sh，直至满意数量。  
+运行./step2.sh开启节点  
+
+手动提票  
+
+对节点1提票：
+cashout1.sh cashout-all
+其他节点同理。正常会自动提，无须手动
+~~如果运行此命令时报1635+错误，是旧版本step1.sh的bug。运行step3.sh修复即可~~
+新版本已修复。
+
+获取地址  
+
+./step3.sh  
+如提示无step3.sh文件，手动下载step3.sh上传即可。
