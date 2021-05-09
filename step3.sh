@@ -8,12 +8,7 @@ dpi_port=`cat node${i}.yaml | grep 'debug-api-addr: 127.0.0.1:' | awk -F ':' '{p
 echo "节点${i}的端口为：${dpi_port}"
 echo "检查cashout${i}.sh……"
 sed -i 's/$((1634+${tCnt}))/"${dpi_port}"/g' cashout${tCnt}.sh
-if [ $? -eq 0 ]; then
-    echo "已修复cashout${i}.sh中的端口错误。"
-else
-    echo "未发现端口错误。"
-fi
-echo "获取节点${i}的钱包地址和合约地址:"
+echo "节点${i}的钱包地址和合约地址:"
 address=`curl -s localhost:${dpi_port}/addresses | jq .ethereum`
 echo "address:${address}"
 chequebook=`curl -s http://localhost:${dpi_port}/chequebook/address | jq .chequebookaddress`
