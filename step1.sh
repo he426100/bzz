@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 cntFile=".showcnt.txt"
+epFile="epFile.txt"
 if [ ! -f $cntFile ]; then
 echo "首次使用脚本，进行初始化……"
 sudo apt-get update
@@ -15,18 +16,21 @@ sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
 chmod +rw $cntFile
 sed -i 's/10000000000000000/1/g' cashout.sh
-
+echo "请输入swap-endpoint链接，如https://goerli.infura.io/v3/12ecf******************:"
+read ep
+echo "${ep} > $epFile"
 fi
 if [ $# == 1 ]; then
 if [ $1 == "resetcnt" ]; then
 echo "0" > $cntFile
 fi
 fi
+ep=`cat $epFile`
 tCnt=`cat $cntFile`
 let tCnt++
 echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
-
+echo "    若需要更改endpoint，请自行修改epFile.txt"
 cat>node${tCnt}.yaml<<EOF
 api-addr: :$((1534+${tCnt}))
 config: /etc/bee/node${tCnt}.yaml
@@ -37,7 +41,7 @@ debug-api-enable: true
 p2p-addr: :$((1734+${tCnt}))
 password-file: /var/lib/bee/password
 verbosity: 5
-swap-endpoint: https://goerli.infura.io/v3/18fcc95a4c7e4c25896c61f7a5f55289
+swap-endpoint: ${ep}
 EOF
 cp cashout.sh cashout${tCnt}.sh
 sed -i 's/1635/"$((1634+${tCnt}))"/g' cashout${tCnt}.sh
