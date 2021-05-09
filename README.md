@@ -2,11 +2,13 @@
 功能
 
 step1.sh:  
-快速配置多节点  
+配置节点。
 step2.sh:  
-使用screen开启节点，开启自动兑付，下载钱包文件  
+开启节点，设置自动兑付，下载钱包文件。
+注意：下载的钱包文件未解密。请自行使用main.exe或其他转换工具进行转换。  
+参考：https://pastebee.com/?3b2a4cecafa21a7afcdd4d4f3d74fef1d5551acd91eb2d3a5b750dc9a161fbcf   
 step3.sh:  
-修复旧版本step2.sh的自动兑付的端口错误，下载钱包地址和合约地址  
+修复旧版本step2.sh的自动兑付的端口错误，下载合约地址。
 
 环境
 
