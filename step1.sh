@@ -39,7 +39,7 @@ verbosity: 5
 swap-endpoint: https://goerli.infura.io/v3/18fcc95a4c7e4c25896c61f7a5f55289
 EOF
 cp cashout.sh cashout${tCnt}.sh
-sed -i 's/1635/$((1634+${tCnt}))/g' cashout${tCnt}.sh
+sed -i 's/1635/"$((1634+${tCnt}))"/g' cashout${tCnt}.sh
 echo "    第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
 echo "    请等候bee与以太坊后端同步完毕后接水，然后按Ctrl+C"
 echo "    之后可用./step1.sh再次运行此脚本部署更多节点"
