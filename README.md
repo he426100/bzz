@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step1.sh && chmod 777
 对节点1提票：  
 cashout1.sh cashout-all
 其他节点同理。正常会自动提，无须手动。  
-~~如果运行此命令时报1635+错误，是旧版本step1.sh的bug。运行step3.sh修复即可~~  
+~~如果运行cashout1.sh时报1634+错误，是旧版本step1.sh的bug。运行step3.sh修复即可~~  
 新版本已修复。
 
 获取地址  
