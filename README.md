@@ -31,4 +31,5 @@ cashout1.sh cashout-all
 获取地址  
 
 ./step3.sh  
-如提示无step3.sh文件，手动下载step3.sh上传即可。
+如提示无step3.sh文件，手动下载step3.sh上传即可。  
+若获取的节点地址为空，大概率是服务器配置不够。
