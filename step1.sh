@@ -35,7 +35,7 @@ cat>node${tCnt}.yaml<<EOF
 api-addr: :$((1534+${tCnt}))
 config: /root/node${tCnt}.yaml
 data-dir: /var/lib/bee/node${tCnt}
-db-capacity: 15000000
+db-capacity: 5000000
 #debug-api-addr: :$((1634+${tCnt}))
 debug-api-addr: :$((1634+${tCnt}))
 debug-api-enable: true
