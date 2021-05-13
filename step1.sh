@@ -10,8 +10,8 @@ sudo apt-get install -y screen
 sudo apt-get install -y net-tools
 wget https://github.com/ethersphere/bee/releases/download/v0.5.3/bee_0.5.3_amd64.deb
 wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5cd0500e6428752b37e975/raw/b40510f1172b96c21d6d20558ca1e70d26d625c4/cashout.sh && chmod 777 cashout.sh
-wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step2.sh && chmod 777 step2.sh
-wget https://raw.githubusercontent.com/pumpkin4gb/bzz/main/step3.sh && chmod 777 step3.sh
+wget https://raw.githubusercontent.com/dislikediss/bzz/main/step2.sh && chmod 777 step2.sh
+wget https://raw.githubusercontent.com/dislikediss/bzz/main/step3.sh && chmod 777 step3.sh
 sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
 echo "0" > $cntFile
 chmod +rw $cntFile
@@ -37,11 +37,11 @@ config: /root/node${tCnt}.yaml
 data-dir: /var/lib/bee/node${tCnt}
 db-capacity: 15000000
 #debug-api-addr: :$((1634+${tCnt}))
-debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
+debug-api-addr: :$((1634+${tCnt}))
 debug-api-enable: true
 p2p-addr: :$((1734+${tCnt}))
 password-file: /var/lib/bee/password
-verbosity: 5
+verbosity: 3
 swap-endpoint: ${ep}
 EOF
 cp cashout.sh cashout${tCnt}.sh
