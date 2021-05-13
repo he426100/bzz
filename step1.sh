@@ -36,8 +36,8 @@ api-addr: :$((1534+${tCnt}))
 config: /root/node${tCnt}.yaml
 data-dir: /var/lib/bee/node${tCnt}
 db-capacity: 15000000
-debug-api-addr: :$((1634+${tCnt}))
-#debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
+#debug-api-addr: :$((1634+${tCnt}))
+debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
 debug-api-enable: true
 p2p-addr: :$((1734+${tCnt}))
 password-file: /var/lib/bee/password
