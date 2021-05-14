@@ -12,7 +12,7 @@ wget https://github.com/ethersphere/bee/releases/download/v0.5.3/bee_0.5.3_amd64
 wget -O cashout.sh https://gist.githubusercontent.com/ralph-pichler/3b5ccd7a5c5cd0500e6428752b37e975/raw/b40510f1172b96c21d6d20558ca1e70d26d625c4/cashout.sh && chmod 777 cashout.sh
 wget https://raw.githubusercontent.com/dislikediss/bzz/main/step2.sh && chmod 777 step2.sh
 wget https://raw.githubusercontent.com/dislikediss/bzz/main/step3.sh && chmod 777 step3.sh
-sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee
+sudo dpkg -i bee_0.5.3_amd64.deb && sudo chown -R bee:bee /var/lib/bee && sudo chown -R bee:bee /data/bees
 echo "0" > $cntFile
 chmod +rw $cntFile
 sed -i 's/10000000000000000/1/g' cashout.sh
@@ -34,7 +34,7 @@ echo "    若需更改endpoint，请自行修改epFile.txt"
 cat>node${tCnt}.yaml<<EOF
 api-addr: :$((1534+${tCnt}))
 config: /root/node${tCnt}.yaml
-data-dir: /var/lib/bee/node${tCnt}
+data-dir: /data/bees/node${tCnt}
 db-capacity: 700000 # 默认的5,000,000块约为20.5gb。我们建议节点的最小容量为2.5gb
 #debug-api-addr: :$((1634+${tCnt}))
 debug-api-addr: :$((1634+${tCnt}))
