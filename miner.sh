@@ -35,7 +35,7 @@ cat>node${tCnt}.yaml<<EOF
 api-addr: :$((1534+${tCnt}))
 config: /root/node${tCnt}.yaml
 data-dir: /dataCache/bee/node${tCnt}
-db-capacity: 700000 # 默认的5,000,000块约为20.5gb。我们建议节点的最小容量为2.5gb
+db-capacity: 5000000 # 默认的5,000,000块约为20.5gb。我们建议节点的最小容量为2.5gb
 #debug-api-addr: :$((1634+${tCnt}))
 debug-api-addr: :$((1634+${tCnt}))
 debug-api-enable: true
