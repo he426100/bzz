@@ -18,7 +18,7 @@ do
 screen -S bee$i -X quit
 cat>node${i}.yaml<<EOF
 api-addr: :$((1534+${i}))
-data-dir: /var/lib/bee/node${i}
+data-dir: /data/bees/node${i}
 cache-capacity: "2000000"
 block-time: "15"
 #bootnode:
@@ -27,7 +27,7 @@ debug-api-addr: :$((1634+${i}))
 #debug-api-addr: 127.0.0.1:$((1634+${i}))
 debug-api-enable: true
 p2p-addr: :$((1734+${i}))
-password-file: /var/lib/bee/password
+password-file: /data/bees/password
 swap-initial-deposit: "10000000000000000"
 verbosity: 3
 swap-endpoint: ${ep}
@@ -47,7 +47,7 @@ cp cashout.sh cashout${i}.sh
 sed -i "s/1635/$((1634+${i}))/g" cashout${i}.sh
 if [[ "$ver" != "" ]]
 then
-rm -rf /var/lib/bee/node${i}/localstore
+rm -rf /data/bees/node${i}/localstore
 fi
 screen -dmS bee$i
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
