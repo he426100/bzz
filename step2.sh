@@ -31,7 +31,7 @@ fi
 tCnt=`cat $cntFile`
 for ((i=1; i<=tCnt; i ++))
 do
-lsof -i:$((1534+$i))
+lsof -i:$((1535+$i))
 if [ $? -ne 0 ]
 then
 screen -x -S bee$i -p 0 -X stuff "bee start --config node${i}.yaml"
