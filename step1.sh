@@ -32,17 +32,17 @@ echo $tCnt > $cntFile
 echo "    这是第 $tCnt 次创建节点"
 echo "    若需更改endpoint，请自行修改epFile.txt"
 cat>node${tCnt}.yaml<<EOF
-api-addr: :$((1534+${tCnt}))
+api-addr: :$((1535+${tCnt}))
 config: /root/node${tCnt}.yaml
 data-dir: /data/bees/node${tCnt}
 cache-capacity: "2000000"
 block-time: "15"
 bootnode:
 - /dnsaddr/bootnode.ethswarm.org
-debug-api-addr: :$((1634+${tCnt}))
-#debug-api-addr: 127.0.0.1:$((1634+${tCnt}))
+debug-api-addr: :$((1635+${tCnt}))
+#debug-api-addr: 127.0.0.1:$((1635+${tCnt}))
 debug-api-enable: true
-p2p-addr: :$((1734+${tCnt}))
+p2p-addr: :$((1735+${tCnt}))
 password-file: /data/bees/password
 swap-initial-deposit: "10000000000000000"
 verbosity: 5
@@ -51,7 +51,7 @@ full-node: true
 welcome-message: "youyin"
 EOF
 cp cashout.sh cashout${tCnt}.sh
-sed -i "s/1635/$((1634+${tCnt}))/g" cashout${tCnt}.sh
+sed -i "s/1635/$((1635+${tCnt}))/g" cashout${tCnt}.sh
 echo "    第${tCnt}个节点等待接水中,node${tCnt}.yaml文件已生成至当前目录"
 echo "    请等候bee与以太坊后端同步完毕后接水，然后按Ctrl+C"
 echo "    之后可用./step1.sh再次运行此脚本部署更多节点"
