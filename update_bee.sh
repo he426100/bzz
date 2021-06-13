@@ -32,7 +32,7 @@ swap-initial-deposit: "10000000000000000"
 verbosity: 3
 swap-endpoint: ${ep}
 full-node: true
-welcome-message: "侑银网络"
+welcome-message: "youyin"
 EOF
 done
 ver=`dpkg -l | grep "bee" | grep "0.5.3"`
