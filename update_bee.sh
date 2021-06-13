@@ -32,7 +32,7 @@ swap-initial-deposit: "10000000000000000"
 verbosity: 3
 swap-endpoint: ${ep}
 full-node: true
-welcome-message: "欢迎来到无产阶级社群，MY NAME IS DADAGUAI WECHAT:dislike_diss"
+welcome-message: "侑银网络"
 EOF
 done
 ver=`dpkg -l | grep "bee" | grep "0.5.3"`
